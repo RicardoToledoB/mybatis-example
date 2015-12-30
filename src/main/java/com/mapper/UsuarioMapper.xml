@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Usuario">
+    
+    <!-- LIST ALL USERS -->
+    <select id="list" resultType="com.model.Usuario" >
+        select * from Usuarios 
+    </select>
+    <!--GUARDAR USUARIO -->
+    <insert id="save">
+	    insert into Usuarios(nombre,apepat,apemat)
+            values (
+	    	#{nombre}, #{apepat}, #{apemat}
+	    )
+    </insert>
+    <!-- ELIMINAR USUARIO -->
+    <delete id="delete">
+        delete from Usuarios where usuario_id=#{usuario_id}
+    </delete>
+    
+    <!-- BUSCAR USUARIO -->
+     <select id="search" resultType="com.model.Usuario" >
+        select * from Usuarios where usuario_id=#{usuario_id}
+    </select>
+    <!-- ACTUALIZAR USUARIO -->
+    <update id="edit">
+        update Usuarios set nombre=#{nombre},apepat=#{apepat},apemat=#{apemat} where usuario_id=#{usuario_id}
+    </update>
+    
+</mapper>
